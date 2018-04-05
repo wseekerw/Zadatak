@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<!-- data-spy="affix" data-offset-top="175" -->
+<div class="col-lg-12 col-md-12 col-sm-12">
+
+    <ul class="nav nav-tabs nav-fill">
+        <li ui-sref-active="active" class="nav-item">
+            <a ui-sref="main_page" class="nav-link" href="">Main Page</a>
+        </li>
+        <li ui-sref-active="active" class="nav-item">
+            <a ui-sref="notes" class="nav-link" href="">Notes</a>
+        </li>
+        <li ui-sref-active="active" class="nav-item">
+            <a ui-sref="notes_user" class="nav-link" href="">User's Notes</a>
+        </li>
+        <li ui-sref-active="active" class="nav-item">
+            <a ui-sref="add_note" class="nav-link" href="">Add Note</a>
+        </li>
+        <li ng-hide="userLoggedIn" ui-sref-active="active" class="nav-item">
+            <a ui-sref="register" class="nav-link" href="">Register</a>
+        </li>
+        <li ng-hide="userLoggedIn" ui-sref-active="active" class="nav-item">
+            <a ui-sref="login" class="nav-link" href="">Login</a>
+        </li>
+        <li  ng-show="userLoggedIn" ui-sref-active="active" class="nav-item">
+            <a ui-sref="logout" class="nav-link" href="">Logout</a>
+        </li>
+    </ul>
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+ENGLESKI I SRPSKI
+
+Notes app is a project that consist of Django(Backend - with REST API) and AngularJS(Front-end app).
+In this project Django and angular function as a single application.
+This project allready has a database with data.
+This project uses a sqLite database for testing.
+PostgreSQL is standard database for production usage.
+
+AngularJS app is located in project_folder/static/js
+
+How to run on Linux(tutorial tested on Ubuntu):
+
+1. Clone or download github repository
+
+2. Create virtual enviorment(any folder)
+    
+    - first install python pip if you dont have it:
+        sudo apt-get install python3-pip 
+   
+    - install virtual enviorment on Ubuntu: 
+        sudo pip3 install virtualenv
+    
+    - create new virtual enviorment: 
+        virtualenv -p python3 envname
+    
+    - activate enviorment(first cd into folder containing the envoirment): 
+        source newenv/bin/activate
+
+    - with activated enviorment cd into your Notes app/project folder and:
+        pip3 install -r requirements.txt
+
+        or
+
+        pip3 install --upgrade -r requirements.txt
+
+    Now, with this enviorment you can start Notes website.
+
+3. Run Notes app
+    
+    -with activated enviorment cd into Notes app/project folder and type:
+        python3 manage.py runserver (this runs the function inside of manage.py file and  starts the Django webserver)
+
+4. Using and testing the app
+    
+    - Go to http://127.0.0.1:8000/ and use the app
+
+    - Rest API endpoints for testing:
+          http://127.0.0.1:8000/api/notes/ - GET method for list of notes
+          
+          http://127.0.0.1:8000/api/notes/(?P<pk>\d+)/ - GET method for single note
+          
+          http://127.0.0.1:8000/api/notes/create/ - POST method for creating a note
+          
+          {
+              "title": "",
+              "content": ""
+          }
+          
+          headers: {
+                authorization: "JWT " + token
+          }
+          
+          http://127.0.0.1:8000/api/user/create/ - POST method for registering a user
+
+          {
+               "username": "",
+               "email": "",
+               "email2": "",
+               "password": "",
+               "password2": ""
+          }
+
+          http://127.0.0.1:8000/api/user/login/ - POST method for login 
+          
+          returns a JsonWebToken
+
+          {
+               "username": "",    
+               "password": "",               
+          }
+          
+5. Backend usage
+    
+    - Admin site is on http://127.0.0.1:8000/admin/
+    - superuser credentials are:
+       username: admin
+       password: admin1234
+     
+
+/////////////////////////////////////////////////////////////////////
+
+
+Notes aplikacija je projekat koji se sastoji iz Django(Backend - sa REST API) i AngularJS(Front-end aplikacija).
+U ovom projektu Django i Angular funkcionisu kao jedna aplikacija.
+Ovaj projekat vec sadrzi bazu podataka sa podacima.
+Ovaj projekat koristi sqLite bazu podataka za testiranje i development.
+PostgreSQL je standardna baza za production.
+
+AngularJS aplikacija se nalazi u projektni_folder/static/js
+
+Kako da pokrenete na Linux-u(testirano na Ubuntu):
+
+1. Konirajte i svucite repozitorij
+
+2. Napravite virtual enviorment(bilo koji folder)
+    
+    - ako nemate python pip, instalirajte prvo njega:
+        sudo apt-get install python3-pip 
+   
+    - instalirajte virtual enviorment na Ubuntu: 
+        sudo pip3 install virtualenv
+    
+    - napravite novi enviorment: 
+        virtualenv -p python3 envname
+    
+    - aktivirajte enviorment(prvo cd u folder koji sadrzi envoirment): 
+        source newenv/bin/activate
+
+    - sa aktiviranim enviormentom cd u vas Notes aplikaciju/projektni folder i:
+        pip3 install -r requirements.txt
+        
+        ili
+
+        pip3 install --upgrade -r requirements.txt
+
+    Sada, sa ovim enviormentom mozete pokrenuti Notes aplikaciju.
+
+3. Pokreni Notes aplikaciju
+    
+    - sa aktiviranim enviormentom cd u Notes glavni folder aplikacije i ukucajte:
+        python3 manage.py runserver (ovo startuje funkciju unutar manage.py fajla i pokrece web server)
+
+4. Koriscenje i testiranje aplikacije
+    
+    - Idite na http://127.0.0.1:8000/ gde mozete koristiti aplikaciju
+
+    - Rest API endpoints za testiranje:
+          http://127.0.0.1:8000/api/notes/ - GET metoda za listu notes
+          
+          http://127.0.0.1:8000/api/notes/(?P<pk>\d+)/ - GET metoda za pojedinacnu note
+          
+          http://127.0.0.1:8000/api/notes/create/ - POST metoda za stvaranje nove notes
+          
+          {
+              "title": "",
+              "content": ""
+          }
+          
+          headers: {
+                authorization: "JWT " + token
+          }
+          
+          http://127.0.0.1:8000/api/user/create/ - POST metoda za registrovanje novog korisnika
+
+          {
+               "username": "",
+               "email": "",
+               "email2": "",
+               "password": "",
+               "password2": ""
+          }
+
+          http://127.0.0.1:8000/api/user/login/ - POST post metoda za prijavljivanje korisnika 
+          
+          vraca JsonWebToken
+
+          {
+               "username": "",    
+               "password": "",               
+          }
+          
+5. Backend uputstva
+    
+    - Admin sajt je na http://127.0.0.1:8000/admin/
+    - superuser korisnicko ime i lozinka su:
+       username: admin
+       password: admin1234
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+     

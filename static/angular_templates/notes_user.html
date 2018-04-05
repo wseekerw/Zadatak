@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .note-text {
+            text-align: center;
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+
+        #note-container {
+            border-color: grey;
+            border-width: 1px;
+            border-style: solid;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        #page-title {
+            text-align: center;
+        }
+
+        #not-user, #not-user1 {
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 300px;
+        }
+
+        #sub-title {
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+     <div class="col-lg-12 col-md-12 col-sm-12">
+         <h2 id="page-title">User notes web page</h2>
+
+         <p id="sub-title">Returns a list of notes by user</p>
+
+
+         <div ng-show="userLoggedIn" class="col-sm-6 col-sm-offset-3">
+             <label>Search:</label>
+             <form name="myForm1">
+                 <input
+                     required
+                     type="text"
+                     class="form-control"
+                     placeholder="Filter notes by title"
+                     ng-model="searchQuery"
+                     uib-typeahead="note.title for note in user_notes | filter:$viewValue | limitTo: 5"
+                     typeahead-on-select="selectItem($item, $model, $label)"
+                 />
+             </form>
+         </div>
+
+         <p id="not-user1" ng-hide="!wrongUser" ng-show="wrongUser">There are no notes for logged in user.</p>
+
+         <h5 id="not-user" ng-hide="userLoggedIn">You need to login in order to see the list of notes</h5>
+
+         <div ng-show="userLoggedIn" id="note-container" class="col-sm-6 col-sm-offset-3" ng-repeat="note in user_notes | orderBy:'-timestamp'| filter:searchQuery ">
+             <p class="note-text">[[ note.title ]]</p>
+             <p class="note-text">[[ note.content ]]</p>
+             <p class="note-text">user: [[ note.user.username ]]</p>
+             <p class="note-text">timestamp: [[ note.timestamp ]]</p>
+         </div>
+
+
+    </div>
+</body>
+</html>

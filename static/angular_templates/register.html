@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    #form {
+        margin-top: 30px;
+        margin-bottom: 100px;
+    }
+
+    #title {
+        margin-top: 50px;
+    }
+
+    .error {
+        color: red;
+    }
+
+    #registerButton {
+        background-color:#590404;
+        border-color: #590404;
+
+        -webkit-box-shadow: inset -10px -193px 76px -187px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset -10px -193px 76px -187px rgba(0,0,0,0.75);
+        box-shadow: inset -10px -193px 76px -187px rgba(0,0,0,0.75);
+    }
+
+    #regDiv {
+        z-index: 1000;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        background-color: white;
+        width: 100%;
+    }
+
+    #firstText {
+        margin-top: 200px;
+    }
+
+    .successText, .link {
+        text-align: center;
+    }
+
+    @keyframes Appear {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    @-moz-@keyframes Appear {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    @-webkit-@keyframes Appear {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    #regDiv {
+        z-index: 1000;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        background-color: white;
+        width: 100%;
+        animation: 1s ease-out 0s 1 Appear;
+    }
+
+    .error {
+       animation: 1s ease-out 0s 1 Appear;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="col-sm-6 col-sm-offset-3 glavniCol">
+        <h1 id="title">Register web page</h1>
+    <p class="stopTekst">You can register your username and email address here.</p>
+    <p id="zvezdice">* All fields are required<br>* Username and password must have at least four characters.</p>
+    <form id="form" enctype="multipart/form-data" ng-submit="RgCtrl.doRegister()" name="myForm">
+
+        <div class="form-group">
+            <label>Username:</label>
+            <input ng-minlength="4" class="form-control formular" required type="text"  ng-model="RgCtrl.user.username"/>
+        </div>
+        <div ng-show="RgCtrl.usernameError1" class="error">
+            <p>[[ RgCtrl.usernameError1 ]]</p>
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input required class="form-control formular" ng-model="RgCtrl.user.email" type="text" />
+        </div>
+        <div class="error" ng-show="RgCtrl.emailErrorValid">
+            <p>[[ RgCtrl.emailErrorValid ]]</p>
+        </div>
+
+        <div class="form-group">
+            <label>Confirm Email: </label>
+            <input required class="form-control formular" ng-model="RgCtrl.user.email2" type="text"/>
+        </div>
+        <div class="error" ng-show="RgCtrl.emailError2Valid">
+            <p>[[ RgCtrl.emailError2Valid ]]</p>
+        </div>
+        <div class="error" ng-show="RgCtrl.emailError2Match">
+            <p>[[ RgCtrl.emailError2Match]]</p>
+        </div>
+        <div class="error" ng-show="RgCtrl.emailError2Reg">
+            <p>[[ RgCtrl.emailError2Reg]]</p>
+        </div>
+
+        <div class="form-group">
+            <label>Password: </label>
+            <input ng-minlength="4" required class="form-control formular" ng-model="RgCtrl.user.password" type="password" />
+        </div>
+
+        <div class="form-group">
+            <label>Confirm Password: </label>
+            <input ng-minlength="4" required class="form-control formular" ng-model="RgCtrl.user.password2" type="password" />
+        </div>
+        <div class="error" ng-show="RgCtrl.passwordErrorMatch">
+            <p>[[RgCtrl.passwordErrorMatch]]</p>
+        </div>
+        <div style="color: green" ng-show="RgCtrl.registerMessage">
+            <p>[[RgCtrl.registerMessage]]</p>
+        </div>
+
+        <input ng-disabled="myForm.$invalid" type="submit" id="registerButton" value="Submit" class="btn btn-success" />
+    </form>
+    <div ng-show="userRegistered" id="regDiv" >
+        <p id="firstText" class="successText">You have successfully registered an account with: </p>
+        <p class="successText">Username: <span style="color: blue;">[[ RgCtrl.regUsername ]]</span></p>
+        <p class="successText">Email address: <span style="color: blue;">[[ RgCtrl.regEmail ]]</span></p>
+        <h4 class="link"><a ui-sref="login">Would you like to login?</a></h4>
+
+    </div>
+
+    </div>
+</body>
+</html>
