@@ -26,8 +26,13 @@ How to run on Linux(tutorial tested on Ubuntu):
     - activate enviorment(first cd into folder containing the envoirment): 
         source newenv/bin/activate
 
+
     - with activated enviorment cd into your Notes app/project folder and:
-        pip3 install requirements.txt
+        pip3 install -r requirements.txt
+
+        or
+
+        pip3 install --upgrade -r requirements.txt
 
     Now, with this enviorment you can start Notes website.
 
@@ -113,8 +118,12 @@ Kako da pokrenete na Linux-u(testirano na Ubuntu):
         source newenv/bin/activate
 
     - sa aktiviranim enviormentom cd u vas Notes aplikaciju/projektni folder i:
-        pip3 install requirements.txt
+        pip3 install -r requirements.txt
 
+        ili
+
+        pip3 install --upgrade -r requirements.txt
+    
     Sada, sa ovim enviormentom mozete pokrenuti Notes aplikaciju.
 
 3. Pokreni Notes aplikaciju
